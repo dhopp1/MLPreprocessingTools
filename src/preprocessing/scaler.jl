@@ -42,7 +42,16 @@ function min_max_scaler(
     return tmp
 end
 
-
+"""
+_given a dataframe and optionally columns, return the dataframe with numeric columns standard scaled. (value - mean) / std
+#### parameters:
+    data : DataFrame
+        dataframe to min max scale
+    columns : Array{Symbol}
+        an array of column names to scale, default is all numeric
+#### returns: DataFrame
+    a new dataframe with desired columns standard scaled
+"""
 function standard_scaler(data::DataFrame, columns::Array = [])
     tmp = copy(data)
     numeric_cols = numeric_columns(tmp)
